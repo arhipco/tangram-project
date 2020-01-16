@@ -16,12 +16,10 @@ public class Figure : MonoBehaviour
     void Start()
     {  
         Main mParent = FindObjectOfType<Main>();
-         int num = Random.Range(0, mParent.colorBank.Length);
-        print("num = " + num);
+         int num = Random.Range(0, mParent.colorBank.Length); 
         SpriteRenderer s = GetComponent<SpriteRenderer>();
-        s.color = mParent.colorBank[num];
-        print("colorBank = " + mParent.colorBank[num]);
-
+        s.color = mParent.colorBank[num]; 
+  
         f_rotation = (int)Mathf.Round(this.transform.eulerAngles.z / 45.0f);  
     }
     public void SetRot(int _rot)
@@ -44,7 +42,7 @@ public class Figure : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        IsRightPlace = false;
+        IsRightPlace = false; 
     }
     void OnTriggerStay2D(Collider2D other)
     {  
@@ -57,22 +55,10 @@ public class Figure : MonoBehaviour
             var orot = Mathf.Round(other.gameObject.transform.eulerAngles.z / 45);   
 
             IsRightPlace = false; 
-            shadowPlace = other.gameObject.transform.position;
-            Debug.Log(trot + " rotation with " + orot);  
-            print(" IsRightPlace " + IsRightPlace);
-
-             print("this object " + thisTag + " and shaadow " + otherTag);
+            shadowPlace = other.gameObject.transform.position; 
             // // если имена идентификаторов совпадают  
             if (thisTag == otherTag && otherLayer == "Shadows")
-            { 
-
-                if (thisTag == "pr")
-                {
-                    print("CHECKING PARALL");
-                    print("trot = " + trot + " and other rotation = " + orot);
-                }
-
-
+            {   
                 if (trot == orot)// если углы поворота совпадают  
                     IsRightPlace = true; 
                 else if (thisTag == "sq" 
@@ -83,16 +69,13 @@ public class Figure : MonoBehaviour
             }    
             if (IsRightPlace)
             {
-                float dist =   Vector3.Distance(other.gameObject.transform.position, transform.position);
-                
-                print("IsRightPlace and  distance =  " + dist);
+                float dist =   Vector3.Distance(other.gameObject.transform.position, transform.position); 
                 if (dist > 3.001f)
                     IsRightPlace = false;
             }   
-        }
-            
+        } 
     }
-
+ 
     public void Update()
     {  
             if (figureState == "moving" && figureState != "installed")
