@@ -9,8 +9,7 @@ public class Shadow : MonoBehaviour
 
    void Start()
    {
-       r_rotation = this.transform.eulerAngles.z;
-        f_rotation = (int)Mathf.Round(r_rotation / 45.0f); 
-       
+      r_rotation = this.transform.eulerAngles.z;
+      f_rotation = (int)Mathf.Round(r_rotation / 45.0f);
    }
 }

@@ -9,7 +9,7 @@ public class Main : MonoBehaviour
 { 
     
    // public static event Action eMouseIsBusy;
-    public static bool MouseIsBusy;        
+    public static bool MouseIsBusy;
     public static int level_number = 1;
 
     public enum GameState { Ready, Game, Complete }; 
@@ -34,15 +34,15 @@ public class Main : MonoBehaviour
     public void Awake()
     {   
         if (state == GameState.Ready) 
-            ResetLevel(level_number);  
+            ResetLevel(level_number);
     }
      
     public void Update() 
     {   
-        if (state == GameState.Complete)  
+        if (state == GameState.Complete)
             ResetLevel(++level_number);
 
-        if (installedCount == 7) 
-            state = GameState.Complete;   
+        if (installedCount == 7)
+            state = GameState.Complete;
     }  
 }
